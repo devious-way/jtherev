@@ -5,7 +5,7 @@ John The Revealer: Check an IP address through multiple DNS-based blacklists (DN
 
 ## Installation (GNU/LINUX):
 ```
-git clone https://github.com/deviousway/jtherev/
+git clone https://github.com/devious-way/jtherev/
 cd jtherev/
 pip install -r requirements.txt
 ```
