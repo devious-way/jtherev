@@ -1,8 +1,6 @@
 # John The Revealer
 Check an IP address through multiple DNS-based blacklists (DNSBL) and IP reputation services in real-time. In this way, you'll be able to detect if an IP is involved in malware incidents and spamming activities.
 
-![John](https://github.com/devious-way/jtherev/blob/main/title.PNG)
-
 ## Installation (GNU/LINUX):
 ```
 git clone https://github.com/devious-way/jtherev/
