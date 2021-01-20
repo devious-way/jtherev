@@ -3,7 +3,7 @@ Check an IP address through multiple DNS-based blacklists (DNSBL) and IP reputat
 
 ## Installation (GNU/LINUX):
 ```
-git clone https://github.com/devious-way/jtherev/
+git clone https://github.com/indevi0us/jtherev/
 cd jtherev/
 pip install -r requirements.txt
 ```
