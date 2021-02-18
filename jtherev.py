@@ -51,7 +51,8 @@ def tracking():
     time.sleep(1)
     reversed_dns = socket.getfqdn(badip)
     urlgeo = 'https://tools.keycdn.com/geo.json?host='
-    geoip = requests.get(urlgeo + badip).json()
+    headers = {"User-Agent": "keycdn-tools:https://"}
+    geoip = requests.get(urlgeo + badip, headers=headers).json()
     print('''Fetching data received...\n''')
     jprint(geoip)
     return
