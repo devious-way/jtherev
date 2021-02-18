@@ -3,12 +3,9 @@
 
 from urllib.request import urlopen
 from html.parser import HTMLParser
-from lxml import html
-from lxml import etree
 from bs4 import BeautifulSoup
 from string import ascii_lowercase
 from colorama import init, Fore, Back, Style
-
 import argparse
 import pyfiglet
 import os, sys
@@ -22,7 +19,7 @@ init(autoreset=True) # reset sequences to turn off color changes at the end of e
 # static title, version, sign & desc
 def header():
     title = pyfiglet.figlet_format("jtherev", font = "ogre" )
-    vsign = pyfiglet.figlet_format("John The Revealer 1.4 by indevi0us", font = "digital" )
+    vsign = pyfiglet.figlet_format("John The Revealer 1.4.1 by indevi0us", font = "digital" )
     print(title + vsign)
     print('Check an IP address through multiple DNS-based blacklists (DNSBL) and IP reputation services in real-time. '
 	'In this way, you\'ll be able to detect if an IP is involved in malware incidents and spamming activities.\n')
