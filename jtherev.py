@@ -3,6 +3,7 @@
 
 from urllib.request import urlopen
 from html.parser import HTMLParser
+from lxml import html
 from bs4 import BeautifulSoup
 from string import ascii_lowercase
 from colorama import init, Fore, Back, Style
