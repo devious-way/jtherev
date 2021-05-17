@@ -21,9 +21,8 @@ init(autoreset=True) # reset sequences to turn off color changes at the end of e
 def header():
     title = pyfiglet.figlet_format("jtherev", font = "ogre" )
     vsign = pyfiglet.figlet_format("John The Revealer 1.4.1 by indevi0us", font = "digital" )
-    print(title + vsign)
-    print('Check an IP address through multiple DNS-based blacklists (DNSBL) and IP reputation services in real-time. '
-	'In this way, you\'ll be able to detect if an IP is involved in malware incidents and spamming activities.\n')
+    print(title + vsign + '\nCheck an IP address through multiple DNS-based blacklists (DNSBL) and IP reputation services in real-time. ' +
+	'In this way, you\'ll be able to detect if an IPv4 is involved in malware incidents and spamming activities.\n')
     return
 
 # whois.json
@@ -40,7 +39,7 @@ def jprint(obj):
 
 # tracking and call to .json function to get geo ip location
 def tracking():
-    print(Fore.YELLOW + Style.BRIGHT + '\nProcess started' + Style.RESET_ALL + ': tracking the target...')
+print(Fore.YELLOW + Style.BRIGHT + '\n[+] Process started' + Style.RESET_ALL + ': tracking the target...')
     time.sleep(2.5)
     print('[+] Get: receiving data about continent... Done' + '\n'
         + '[+] Get: receiving data about country... Done' + '\n'
@@ -54,27 +53,27 @@ def tracking():
     urlgeo = 'https://tools.keycdn.com/geo.json?host='
     headers = {"User-Agent": "keycdn-tools:https://"}
     geoip = requests.get(urlgeo + badip, headers=headers).json()
-    print('''Fetching data received...\n''')
+    print("[+] Fetching data received...\n")
     jprint(geoip)
     return
 
 # graphical function to keep track of the confidence of abuse
 def confabuse():
-    print(Fore.YELLOW + Style.BRIGHT + 'Process started' + Style.RESET_ALL + ': checking for confidence of abuse...')
+    print(Fore.YELLOW + Style.BRIGHT + '[+] Process started' + Style.RESET_ALL + ': checking for confidence of abuse...')
     time.sleep(1)
-    print('[+] Get: receiving data about confidence of abuse... Done\n' + 'Fetching data received...\n')
+    print('[+] Get: receiving data about confidence of abuse... Done\n[+] Fetching data received...\n')
     time.sleep(1)
     return
 
 # graphical function to keep track of the tor exit nodes check
 def tprocess():
-    print(Fore.YELLOW + Style.BRIGHT + '\nProcess started''' + Style.RESET_ALL + ': checking against TOR exit nodes DB...')
+    print(Fore.YELLOW + Style.BRIGHT + '\n[+] Process started' + Style.RESET_ALL + ': checking against TOR exit nodes DB...')
     time.sleep(1)
     return
 
 # graphical function to keep track of the dnsbl check
 def blprocess():
-    print(Fore.YELLOW + Style.BRIGHT + '''\nProcess started''' + Style.RESET_ALL + ''': checking against multiple IP and DNS blacklists...''')
+    print(Fore.YELLOW + Style.BRIGHT + '\n[+] Process started' + Style.RESET_ALL + ''': checking against multiple IP and DNS blacklists...''')
     time.sleep(1)
     return
 
@@ -85,13 +84,13 @@ def abuseparse():
     tree = html.fromstring(geoip.content)
     conf = tree.xpath('//*[@id="report-wrapper"]/div[1]/div[1]/div/p[1]/b[2]/text()')
     conf  = str(conf)
-    print('Confidence of abuse is: ' + conf.replace('\'','').replace('[','').replace(']',''))
+    print('[+] Confidence of abuse is: ' + conf.replace('\'','').replace('[','').replace(']',''))
     return
 
 # input error handling
 def reset():
     print(Fore.RED + Style.BRIGHT + "\n[!] Error: No IP address to check! Please, check your input.\n" + Style.RESET_ALL)
-    input('Press ENTER to exit.')
+    input('[!] Press ENTER to exit.')
     return
 
     try:
@@ -170,13 +169,13 @@ while answer not in valid_inputs:
             GOOD = GOOD + 1
 
         except dns.resolver.Timeout:
-            print (Fore.RED + Style.BRIGHT + 'WARNING: Timeout querying ' + bl + Style.RESET_ALL)
+            print (Fore.RED + Style.BRIGHT + '[!] WARNING: Timeout querying ' + bl + Style.RESET_ALL)
 
         except dns.resolver.NoNameservers:
-            print (Fore.RED + Style.BRIGHT + 'WARNING: No nameservers for ' + bl + Style.RESET_ALL)
+            print (Fore.RED + Style.BRIGHT + '[!] WARNING: No nameservers for ' + bl + Style.RESET_ALL)
 
         except dns.resolver.NoAnswer:
-            print (Fore.RED + Style.BRIGHT + 'WARNING: No answer for ' + bl + Style.RESET_ALL)
+            print (Fore.RED + Style.BRIGHT + '[!] WARNING: No answer for ' + bl + Style.RESET_ALL)
 
     print('\n{0} is on {1}/{2} blacklists.\n'.format(badip, BAD, (GOOD + BAD)))
     confabuse()
@@ -197,6 +196,5 @@ while answer not in valid_inputs:
             BAD = BAD + 1
 
         except dns.resolver.NXDOMAIN:
-            print(str(badip) + ' is not a TOR exit node ')
-            print('\n')
+            print('[+]' + str(badip) + ' is not a TOR exit node.\n')
             GOOD = GOOD + 1
