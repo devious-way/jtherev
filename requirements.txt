@@ -4,3 +4,4 @@ pyfiglet==0.8.post1
 bs4==0.0.1
 dnspython==1.16.0
 colorama==0.4.3
+lxml==4.6.3
