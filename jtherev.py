@@ -39,7 +39,7 @@ def jprint(obj):
 
 # tracking and call to .json function to get geo ip location
 def tracking():
-print(Fore.YELLOW + Style.BRIGHT + '\n[+] Process started' + Style.RESET_ALL + ': tracking the target...')
+    print(Fore.YELLOW + Style.BRIGHT + '\n[+] Process started' + Style.RESET_ALL + ': tracking the target...')
     time.sleep(2.5)
     print('[+] Get: receiving data about continent... Done' + '\n'
         + '[+] Get: receiving data about country... Done' + '\n'
